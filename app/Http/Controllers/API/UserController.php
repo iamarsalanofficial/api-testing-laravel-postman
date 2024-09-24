@@ -14,7 +14,6 @@ class UserController extends Controller
     public function createUser(Request $request)
     {
         // Validator 
-
         $valid = Validator::make($request->all(),[
             'name' => 'required| string',
             'email' => 'required| string',
@@ -25,8 +24,6 @@ class UserController extends Controller
         'error_message' => $valid->errors());
         return response()->json($result, 400);
         }
-
-
         // Create New User
         $user = User::create([
             'name' => $request-> name,
